@@ -19,8 +19,9 @@ AddZooTeamForm = require './add-zoo-team-form'
 DragReorderable = require 'drag-reorderable'
 
 store = require '../store'
+{connect} = require 'react-redux'
 
-module?.exports = React.createClass
+module?.exports = connect() React.createClass
   displayName: 'TalkInit'
   mixins: [HandlePropChanges]
 
