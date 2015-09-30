@@ -1,7 +1,8 @@
 Router = {RouteHandler, DefaultRoute, Route, NotFoundRoute} = require '@edpaget/react-router'
 React = require 'react'
 
-module.exports =
+
+module?.exports =
 <Route handler={require './partials/app'}>
   <DefaultRoute name="home" handler={require './pages/home'} />
 
@@ -116,4 +117,3 @@ module.exports =
   <Route path="dev/aggregate" handler={require './components/aggregate-view'} />
   <Route path="dev/ribbon" handler={require './components/classifications-ribbon'} />
 </Route>
-

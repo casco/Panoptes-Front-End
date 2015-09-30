@@ -18,6 +18,8 @@ alert = require '../lib/alert'
 AddZooTeamForm = require './add-zoo-team-form'
 DragReorderable = require 'drag-reorderable'
 
+store = require '../store'
+
 module?.exports = React.createClass
   displayName: 'TalkInit'
   mixins: [HandlePropChanges]
