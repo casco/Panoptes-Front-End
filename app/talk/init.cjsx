@@ -21,7 +21,10 @@ DragReorderable = require 'drag-reorderable'
 store = require '../store'
 {connect} = require 'react-redux'
 
-module?.exports = connect() React.createClass
+mapStateToProps = (state) ->
+  s: 'hard-coded-section' # state.section
+
+module?.exports = connect(mapStateToProps) React.createClass
   displayName: 'TalkInit'
   mixins: [HandlePropChanges]
 
