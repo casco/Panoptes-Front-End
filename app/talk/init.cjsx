@@ -22,7 +22,11 @@ store = require '../store'
 {connect} = require 'react-redux'
 
 mapStateToProps = (state) ->
-  s: 'hard-coded-section' # state.section
+  boards: state.boards
+
+setBoards = (section) ->
+  talkClient.type('boards').get({section}).then (boards) ->
+    store.dispatch({type: 'BOARDS', boards})
 
 module?.exports = connect(mapStateToProps) React.createClass
   displayName: 'TalkInit'
@@ -32,18 +36,18 @@ module?.exports = connect(mapStateToProps) React.createClass
     section: React.PropTypes.string # 'zooniverse' for main-talk, 'project_id' for projects
 
   propChangeHandlers:
-    'section': 'setBoards'
     'user': 'setBoards'
 
   getInitialState: ->
-    boards: []
-    loading: true
+    loading: false
     moderationOpen: false
 
   componentWillMount: ->
     sugarClient?.subscribeTo('zooniverse') if @props.section is 'zooniverse'
     console.log "@props of talk/init", @props
-    store.dispatch({type: 'BOARDZ'})
+    store.dispatch({type: 'INCREMENT'}) # test store action
+    # store.dispatch({type: 'BOARDS'})
+    setBoards(@props.section)
 
   componentWillUnmount: ->
     sugarClient?.unsubscribeFrom('zooniverse') if @props.section is 'zooniverse'
@@ -147,10 +151,10 @@ module?.exports = connect(mapStateToProps) React.createClass
         <section>
           {if @state.loading
             <Loading />
-           else if @state.boards?.length is 0
+           else if @props.boards?.length is 0
             <p>There are currently no boards.</p>
-           else if @state.boards?.length
-             @state.boards.map(@boardPreview)}
+           else if @props.boards?.length
+             @props.boards.map(@boardPreview)} 
         </section>
 
         <div className="talk-sidebar">
