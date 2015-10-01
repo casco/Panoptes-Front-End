@@ -19,10 +19,7 @@ DragReorderable = require 'drag-reorderable'
 
 store = require '../store'
 {connect} = require 'react-redux'
-
-setBoards = (section) ->
-  talkClient.type('boards').get({section}).then (boards) ->
-    store.dispatch({type: 'BOARDS', boards})
+{get} = require '../actions'
 
 mapStateToProps = (state) ->
   boards: state.boards
@@ -41,15 +38,14 @@ module?.exports = connect(mapStateToProps) React.createClass
 
   componentWillMount: ->
     sugarClient?.subscribeTo('zooniverse') if @props.section is 'zooniverse'
-    console.log "@props of talk/init", @props
-    store.dispatch({type: 'INCREMENT'}) # test store action
-    # store.dispatch({type: 'BOARDS'})
-    setBoards(@props.section)
+    @dispatchBoards()
 
+  dispatchBoards: ->
+    store.dispatch(get({type: 'boards', params: {section: @props.section}}))
 
   componentWillReceiveProps: (nextProps) ->
     if @props.user isnt @props.user
-      setBoards(@props.section)
+      @dispatchBoards()
 
   componentWillUnmount: ->
     sugarClient?.unsubscribeFrom('zooniverse') if @props.section is 'zooniverse'
@@ -114,7 +110,7 @@ module?.exports = connect(mapStateToProps) React.createClass
               {if @props.section isnt 'zooniverse'
                 <CreateSubjectDefaultButton
                   section={@props.section}
-                  onCreateBoard={=> setBoards(@props.section)} />
+                  onCreateBoard={@dispatchBoards} />
                 }
 
               <ZooniverseTeam user={@props.user} section={@props.section}>
