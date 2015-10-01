@@ -17,18 +17,25 @@ SignInPrompt = require '../partials/sign-in-prompt'
 Comment = require '../talk/comment'
 Paginator = require '../talk/lib/paginator'
 
+store = require '../store'
+{get} = require '../actions'
+{connect} = require 'react-redux'
+
 indexOf = (elem) ->
   (elem while elem = elem.previousSibling).length
 
 promptToSignIn = ->
   alert (resolve) -> <SignInPrompt onChoose={resolve} />
 
-module?.exports = React.createClass
+mapStateToProps = (state) ->
+  subjects: state.subjects
+  comments: state.comments
+
+module?.exports = connect(mapStateToProps) React.createClass
   displayName: 'Subject'
   mixins: [Navigation]
 
   getInitialState: ->
-    subject: null
     tab: 0
     comments: []
     commentsMeta: {}
@@ -37,28 +44,22 @@ module?.exports = React.createClass
     query: page: 1
 
   componentWillMount: ->
-    @setSubject().then(@setComments)
+    @dispatchSubjects()
+    .then ({subjects}) => @dispatchComments(subjects[0])
 
   componentWillReceiveProps: (nextProps) ->
     if nextProps.params?.id isnt @props.params?.id
-      @setSubject().then(@setComments)
+      @dispatchSubjects()
 
-    if nextProps.query.page isnt @props.query.page
-      @setComments(@state.subject, nextProps.query.page)
+  dispatchSubjects: ->
+    id = @props.params?.id.toString()
+    store.dispatch(get({type: 'api/subjects', params: {id}}))
 
-  setSubject: ->
-    subjectId = @props.params?.id.toString()
-    apiClient.type('subjects').get(subjectId)
-      .then (subject) =>
-        @setState {subject}
-        subject
-
-  setComments: (subject = @state.subject, page = @props.query.page ? 1) ->
-    talkClient.type('comments')
-      .get({focus_id: subject.id, focus_type: 'Subject', page})
-      .then (comments) =>
-        commentsMeta = comments[0]?.getMeta()
-        @setState {comments, commentsMeta}
+  dispatchComments: (subject) ->
+    store.dispatch(get({
+      type: 'talk/comments',
+      params: {focus_id: subject.id, focus_type: 'Subject'}
+    }))
 
   comment: (comment, i) ->
     <Comment key={comment.id} data={comment} locked={true} linked={true} />
@@ -74,7 +75,8 @@ module?.exports = React.createClass
     <Link to="project-classify" params={{owner, name}}>{text}</Link>
 
   render: ->
-    {subject, comments, commentsMeta} = @state
+    subject = @props.subjects[0]
+    {comments} = @props
 
     <div className="subject-page talk">
       {if subject
@@ -83,15 +85,10 @@ module?.exports = React.createClass
 
           <SubjectViewer subject={subject} user={@props.user} project={@props.project}/>
 
-          {if comments?.length
+          {if comments.length
             <div>
               <h2>Comments mentioning this subject:</h2>
               <div>{comments.map(@comment)}</div>
-
-              <Paginator
-                page={+commentsMeta?.page}
-                pageCount={+commentsMeta?.page_count}
-              />
             </div>
           else
             <p>There are no comments focused on this subject</p>}
