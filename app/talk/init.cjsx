@@ -131,15 +131,13 @@ module?.exports = connect(mapStateToProps) React.createClass
                 View Reported Comments
               </Link>
 
-<<<<<<< HEAD
               <CreateBoardForm section={@props.section} onSubmitBoard={=> @setBoards()}/>
 
               <h3>Reorder Boards:</h3>
               {@boardOrders()}
               <button onClick={@clearBoardOrder}>Order by activity</button>
-=======
-              <CreateBoardForm section={@props.section} onSubmitBoard={=> setBoards(@props.section)}/>
->>>>>>> Remove old boards setter
+
+              <CreateBoardForm section={@props.section} onSubmitBoard={@dispatchBoards}/>
             </div>
             }
         </div>
