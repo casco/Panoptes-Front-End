@@ -28,7 +28,7 @@ module?.exports = connect(mapStateToProps) React.createClass
 
   propTypes:
     section: React.PropTypes.string # 'zooniverse' for main-talk, 'project_id' for projects
-    boards: React.PropTypes.array
+    boards: React.PropTypes.object
     loading: React.PropTypes.bool
 
   getInitialState: ->
@@ -130,8 +130,6 @@ module?.exports = connect(mapStateToProps) React.createClass
                 }>
                 View Reported Comments
               </Link>
-
-              <CreateBoardForm section={@props.section} onSubmitBoard={=> @setBoards()}/>
 
               <h3>Reorder Boards:</h3>
               {@boardOrders()}
