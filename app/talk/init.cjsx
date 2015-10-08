@@ -56,7 +56,7 @@ module?.exports = connect(mapStateToProps) React.createClass
     <DragReorderable
       tag='ul'
       className='talk-reorder-boards'
-      items={@state.boards}
+      items={@boards()}
       render={@boardOrderItem}
       onChange={@boardOrderChanged}
     />
@@ -67,15 +67,13 @@ module?.exports = connect(mapStateToProps) React.createClass
     </li>
 
   boardOrderChanged: (boards) ->
-    @setState boards: boards
-    @updateBoardOrder(boards).then =>
-      @setBoards()
+    @updateBoardOrder(boards).then(@dispatchBoards)
 
   updateBoardOrder: (boards) ->
     boardsById = { }
     boardsById[board.id] = board for board in boards
 
-    idsBefore = (board.id for board in @state.boards)
+    idsBefore = (board.id for board in @boards())
     idsAfter = (board.id for board in boards)
 
     changes = { }
@@ -86,14 +84,17 @@ module?.exports = connect(mapStateToProps) React.createClass
       boardsById[id].update(position: changes[id]).save()
 
   clearBoardOrder: ->
-    Promise.all @state.boards.map (board) =>
+    Promise.all @boards().map (board) =>
       board.update(position: 0).save()
     .then =>
       @setState loading: true
-      @setBoards()
+      @dispatchBoards()
+
+  boards: ->
+    @props.boards.current?.map (id) => @props.boards[id]
 
   render: ->
-    boards = @props.boards.current?.map (id) => @props.boards[id]
+    boards = @boards()
 
     <div className="talk-home">
       {if @props.user?
