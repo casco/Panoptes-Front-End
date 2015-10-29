@@ -1,5 +1,5 @@
 React = require 'react'
-{Link,Navigation} = require '@edpaget/react-router'
+{Link,Navigation} = require 'react-router'
 talkClient = require '../api/talk'
 apiClient = require '../api/client'
 Paginator = require './lib/paginator'

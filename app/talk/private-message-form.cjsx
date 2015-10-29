@@ -1,7 +1,7 @@
 React = require 'react'
 apiClient = require '../api/client'
 talkClient = require '../api/talk'
-Router = require '@edpaget/react-router'
+Router = require 'react-router'
 CommentBox = require './comment-box'
 
 module?.exports = React.createClass

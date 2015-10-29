@@ -4,7 +4,7 @@ apiClient = require '../api/client'
 DisplayRoles = require './lib/display-roles'
 Avatar = require '../partials/avatar'
 PromiseRenderer = require '../components/promise-renderer'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 merge = require 'lodash.merge'
 {Markdown} = require 'markdownz'
 

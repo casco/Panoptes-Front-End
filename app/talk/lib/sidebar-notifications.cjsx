@@ -1,5 +1,5 @@
 React = require 'react'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 talkClient = require '../../api/talk'
 resourceCount = require './resource-count'
 formatNumber = require './format-number'

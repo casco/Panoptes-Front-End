@@ -1,5 +1,5 @@
 React = require 'react'
-Router = require '@edpaget/react-router'
+Router = require 'react-router'
 intersection = require 'lodash.intersection'
 pick = require 'lodash.pick'
 Translate = require 'react-translate-component'
@@ -9,7 +9,7 @@ Paginator = require '../talk/lib/paginator'
 PromiseRenderer = require '../components/promise-renderer'
 SubjectViewer = require '../components/subject-viewer'
 Loading = require '../components/loading-indicator'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 
 VALID_COLLECTION_MEMBER_SUBJECTS_PARAMS = ['page', 'page_size']
 

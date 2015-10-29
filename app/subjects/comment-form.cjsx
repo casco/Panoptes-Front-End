@@ -1,5 +1,5 @@
 React = require 'react'
-{Navigation, Link} = require '@edpaget/react-router'
+{Navigation, Link} = require 'react-router'
 talkClient = require '../api/talk'
 NewDiscussionForm = require '../talk/discussion-new-form'
 QuickSubjectCommentForm= require '../talk/quick-subject-comment-form'

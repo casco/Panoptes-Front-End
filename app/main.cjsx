@@ -1,5 +1,6 @@
 React = require 'react'
-Router = require '@edpaget/react-router'
+ReactDOM = require 'react-dom'
+Router = require 'react-router'
 
 React.initializeTouchEvents true
 
@@ -17,7 +18,7 @@ router = Router.create {location, routes}
 
 router.run (Handler, handlerProps) ->
   window.dispatchEvent new CustomEvent 'locationchange'
-  React.render(<Handler {...handlerProps} />, document.getElementById("panoptes-main-container"));
+  ReactDOM.render(<Handler {...handlerProps} />, document.getElementById("panoptes-main-container"));
 
 logDeployedCommit = require './lib/log-deployed-commit'
 logDeployedCommit()

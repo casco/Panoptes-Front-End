@@ -6,7 +6,7 @@ SingleSubmitButton = require '../components/single-submit-button'
 HandlePropChanges = require '../lib/handle-prop-changes'
 {Markdown} = require 'markdownz'
 CommentBox = require './comment-box'
-{Link, Navigation} = require '@edpaget/react-router'
+{Link, Navigation} = require 'react-router'
 {timestamp} = require './lib/time'
 
 module?.exports = React.createClass

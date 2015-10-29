@@ -1,5 +1,5 @@
 React = require 'react'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 {Markdown} = require 'markdownz'
 moment = require 'moment'
 talkClient = require '../../api/talk'

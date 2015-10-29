@@ -1,5 +1,5 @@
 React = require 'react'
-{Navigation} = require '@edpaget/react-router'
+{Navigation} = require 'react-router'
 
 module?.exports = React.createClass
   displayName: 'TalkSearchInput'

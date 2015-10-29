@@ -1,6 +1,6 @@
 React = require 'react'
 apiClient = require '../../api/client'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 Loading = require '../../components/loading-indicator'
 FEATURED_PRODUCT_IDS = require '../../lib/featured-projects'
 

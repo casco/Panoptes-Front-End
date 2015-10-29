@@ -2,7 +2,7 @@ React = require 'react'
 PromiseRenderer = require '../components/promise-renderer'
 parseSection = require './lib/parse-section'
 talkConfig = require './config'
-{Link, Navigation} = require '@edpaget/react-router'
+{Link, Navigation} = require 'react-router'
 
 PAGE_SIZE = talkConfig.discussionPageSize
 

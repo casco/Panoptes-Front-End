@@ -1,6 +1,6 @@
 React = require 'react'
 PromiseRenderer = require '../components/promise-renderer'
-{Link} = require '@edpaget/react-router'
+{Link} = require 'react-router'
 
 module?.exports = React.createClass
   displayName: 'TalkPopularTags'

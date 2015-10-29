@@ -2,7 +2,7 @@ counterpart = require 'counterpart'
 React = require 'react'
 TitleMixin = require '../lib/title-mixin'
 Translate = require 'react-translate-component'
-{Link, RouteHandler} = require '@edpaget/react-router'
+{Link, RouteHandler} = require 'react-router'
 
 counterpart.registerTranslations 'en',
   signIn:

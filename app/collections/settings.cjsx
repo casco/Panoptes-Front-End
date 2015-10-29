@@ -1,5 +1,5 @@
 React = require 'react'
-{Navigation} = require '@edpaget/react-router'
+{Navigation} = require 'react-router'
 DisplayNameSlugEditor = require '../partials/display-name-slug-editor'
 apiClient = require '../api/client'
 alert = require '../lib/alert'

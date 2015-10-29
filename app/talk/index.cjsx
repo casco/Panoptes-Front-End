@@ -1,5 +1,5 @@
 React = require 'react'
-{RouteHandler, Link} = require '@edpaget/react-router'
+{RouteHandler, Link} = require 'react-router'
 TalkBreadcrumbs = require './breadcrumbs.cjsx'
 TalkSearchInput = require './search-input'
 TalkFootnote = require './footnote'
