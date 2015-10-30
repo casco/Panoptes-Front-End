@@ -115,7 +115,7 @@ module.exports =
   </Route>
 
   <Route path="todo/?*" component={React.createClass render: -> <div className="content-container"><i className="fa fa-cogs"></i> TODO</div>} />
-  # <NotFoundRoute component={require './pages/not-found'} />
+  <Route path="*" component={require './pages/not-found'} />
 
   <Route path="dev/workflow-tasks-editor" component={require './components/workflow-tasks-editor'} />
   <Route path="dev/classifier" component={require './classifier'} />
