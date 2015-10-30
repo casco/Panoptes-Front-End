@@ -1,5 +1,5 @@
 React = require 'react'
-{RouteHandler, Link} = require 'react-router'
+{Link} = require 'react-router'
 TalkBreadcrumbs = require './breadcrumbs.cjsx'
 TalkSearchInput = require './search-input'
 TalkFootnote = require './footnote'
@@ -9,6 +9,7 @@ module?.exports = React.createClass
   displayName: 'Talk'
 
   componentWillMount: ->
+    console.log "@props", @props
     sugarClient.subscribeTo @props.section or 'zooniverse'
 
   componentWillUnmount: ->
@@ -26,7 +27,7 @@ module?.exports = React.createClass
 
       <TalkSearchInput {...@props} placeholder={'Search the Zooniverse...'} />
 
-      <RouteHandler {...@props} section={'zooniverse'} />
+      {React.cloneElement @props.children, {section: 'zooniverse'}}
 
       <TalkFootnote />
     </div>

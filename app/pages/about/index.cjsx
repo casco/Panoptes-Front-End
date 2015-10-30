@@ -2,7 +2,6 @@ counterpart = require 'counterpart'
 React = require 'react'
 Translate = require 'react-translate-component'
 {Link} = require 'react-router'
-{RouteHandler} = require 'react-router'
 {Markdown} = require 'markdownz'
 
 counterpart.registerTranslations 'en',
@@ -40,6 +39,6 @@ module.exports = React.createClass
         </div>
       </section>
       <section className="about-page-content content-container">
-        <RouteHandler />
+        {@props.children}
       </section>
     </div>

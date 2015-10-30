@@ -2,7 +2,7 @@ React = require 'react'
 counterpart = require 'counterpart'
 Translate = require 'react-translate-component'
 ChangeListener = require '../../components/change-listener'
-{Link, RouteHandler} = require 'react-router'
+{Link} = require 'react-router'
 
 counterpart.registerTranslations 'en',
   userSettingsPage:
@@ -43,7 +43,7 @@ UserSettingsPage = React.createClass
             </nav>
           </aside>
           <section className="settings-tab-content">
-            <RouteHandler user={@props.user} />
+            {React.cloneElement @props.children, {user: @props.user}}
           </section>
         </div>
       </div>

@@ -4,7 +4,7 @@ apiClient = require '../api/client'
 Paginator = require '../talk/lib/paginator'
 SubjectViewer = require '../components/subject-viewer'
 PromiseRenderer = require '../components/promise-renderer'
-{Link, RouteHandler} = require 'react-router'
+{Link} = require 'react-router'
 Translate = require 'react-translate-component'
 counterpart = require 'counterpart'
 Avatar = require '../partials/avatar'
@@ -56,7 +56,7 @@ CollectionPage = React.createClass
             </Link>}
         </nav>
         <div className="collection-container">
-          <RouteHandler user={@props.user} collection={@props.collection} roles={@props.roles} />
+          {React.cloneElement @props.children, {user: @props.user, collection: @props.collection, roles: @props.roles}}
         </div>
       </div>
     }</PromiseRenderer>

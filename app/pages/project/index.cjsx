@@ -3,7 +3,7 @@ React = require 'react'
 ChangeListener = require '../../components/change-listener'
 PromiseRenderer = require '../../components/promise-renderer'
 Translate = require 'react-translate-component'
-{Link, RouteHandler} = require 'react-router'
+{Link} = require 'react-router'
 TitleMixin = require '../../lib/title-mixin'
 HandlePropChanges = require '../../lib/handle-prop-changes'
 apiClient = window.api = require '../../api/client'
@@ -133,7 +133,7 @@ ProjectPage = React.createClass
               <a key={link._key} href={link.url} className="tabbed-content-tab" target="#{@props.project.id}-#{i}">{label}</a>}
           </nav>
 
-          <RouteHandler {...@props} owner={owner} />
+          {React.cloneElement @props.children, {owner: owner}}
           {unless @props.project.launch_approved or @props.project.beta_approved
             <Translate className="project-disclaimer" content="project.disclaimer" component="p" />
           }

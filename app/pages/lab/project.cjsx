@@ -1,5 +1,5 @@
 React = require 'react'
-{Navigation, Link, RouteHandler} = require 'react-router'
+{Navigation, Link} = require 'react-router'
 PromiseRenderer = require '../../components/promise-renderer'
 LoadingIndicator = require '../../components/loading-indicator'
 TitleMixin = require '../../lib/title-mixin'
@@ -156,7 +156,7 @@ EditProjectPage = React.createClass
 
       <div className="column">
         <ChangeListener target={@props.project} handler={=>
-          <RouteHandler {...@props} />
+          @props.children
         } />
       </div>
     </div>

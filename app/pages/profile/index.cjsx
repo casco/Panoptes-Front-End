@@ -4,7 +4,7 @@ PrivateMessageForm = require '../../talk/private-message-form'
 PromiseRenderer = require '../../components/promise-renderer'
 apiClient = require '../../api/client'
 Translate = require 'react-translate-component'
-{Link, RouteHandler} = require 'react-router'
+{Link} = require 'react-router'
 talkClient = require '../../api/talk'
 
 counterpart.registerTranslations 'en',
@@ -88,7 +88,7 @@ UserProfilePage = React.createClass
       </section>
 
       <section className="user-profile-content">
-        <RouteHandler {...@props} />
+        {@props.children}
       </section>
     </div>
 

@@ -1,5 +1,5 @@
 React = require 'react'
-{RouteHandler, Link} = require 'react-router'
+{Link} = require 'react-router'
 TalkInit = require '../../talk/init'
 TalkBreadcrumbs = require '../../talk/breadcrumbs'
 TalkSearchInput = require '../../talk/search-input'
@@ -21,7 +21,7 @@ module.exports = React.createClass
 
         <TalkSearchInput {...@props} />
 
-        <RouteHandler {...@props} section={projectSection(@props.project)}/>
+        {React.cloneElement @props.children section: projectSection(@props.project)}
 
         <TalkFootnote />
       </div>
