@@ -5,7 +5,7 @@ module.exports =
 <Route component={require './partials/app'}>
   <IndexRoute component={require './pages/home'} />
 
-  <Route path="about/?" component={require './pages/about'} ignoreScrollBehavior>
+  <Route path="about" component={require './pages/about'} ignoreScrollBehavior>
     <IndexRoute component={require './pages/about/about-home'} />
     <Route path="team/?" component={require './pages/about/team-page'} />
     <Route path="publications/?" component={require './pages/about/publications-page'} />
@@ -38,7 +38,7 @@ module.exports =
     <Route path="email/?" component={require './pages/settings/email' } />
   </Route>
 
-  <Route path="projects/?" component={require './pages/projects'} />
+  <Route path="projects" component={require './pages/projects'} />
   <Route path="projects/:owner/:name/?" component={require './pages/project'}>
     <IndexRoute component={require './pages/project/home'} />
     <Route path="research/?" component={require './pages/project/research'} />
@@ -61,10 +61,10 @@ module.exports =
     <Route path="education/?" component={require './pages/project/education'} />
   </Route>
 
-  <Route path="notifications/?" component={require './pages/notifications'} />
+  <Route path="notifications" component={require './pages/notifications'} />
   <Route path=":section/notifications/?" component={require './pages/notifications'} />
 
-  <Route path="talk/?" component={require './talk'}>
+  <Route path="talk" component={require './talk'}>
     <IndexRoute component={require './talk/init'} />
     <Route path="recents/?" component={require './talk/recents'} />
     <Route path="not-found/?" component={require './pages/not-found'} />
@@ -79,7 +79,7 @@ module.exports =
     <Route path=":owner/?" component={require('./pages/collections').FavoritesList} />
   </Route>
 
-  <Route path="collections/?" component={require('./pages/collections').CollectionsList}>
+  <Route path="collections" component={require('./pages/collections').CollectionsList}>
     <Route path=":owner/?" component={require('./pages/collections').CollectionsList} />
   </Route>
   <Route path="collections/:owner/:name/?" component={require './collections/show'}>
@@ -89,7 +89,7 @@ module.exports =
     <Route path="talk/?" component={require './collections/show-list'} />
   </Route>
 
-  <Route path="lab/?" component={require './pages/lab'} />
+  <Route path="lab" component={require './pages/lab'} />
   <Route path="lab/:projectID/?" component={require './pages/lab/project'}>
     <IndexRoute component={require './pages/lab/project-details'} />
     <Route path="research/?" component={require './pages/lab/research'} />
