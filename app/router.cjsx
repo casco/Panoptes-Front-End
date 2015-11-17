@@ -104,6 +104,7 @@ module.exports =
     <Route name="edit-project-talk" path="talk/?" handler={require './pages/lab/talk'} />
     <Route name="get-data-exports" path="data-exports" handler={require './pages/lab/data-dumps'} />
     <Route name="edit-project-tutorial" path="tutorial" handler={require './pages/lab/tutorial'} />
+    <Route name="edit-project-spotters-guide" path="guide" handler={require './pages/lab/spotters-guide'} />
   </Route>
   <Route name="lab-policies" path="lab-policies/?" handler={require './pages/lab/lab-policies'} />
   <Route name="lab-how-to" path="lab-how-to/?" handler={require './pages/lab/how-to-page'} />
