@@ -179,7 +179,7 @@ module?.exports = React.createClass
 
           <section>
             <h3>Projects:</h3>
-            <p><ProjectLinker user={@props.user} /></p>
+            <div><ProjectLinker user={@props.user} /></div>
           </section>
         </div>
       </div>
