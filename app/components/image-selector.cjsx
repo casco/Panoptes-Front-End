@@ -71,7 +71,7 @@ module.exports = React.createClass
       img.style.display = 'none'
 
     @setState rootWidth: NaN, =>
-      @setState rootWidth: @getDOMNode().clientWidth
+      @setState rootWidth: React.findDOMNode(@).clientWidth
 
       for img in imageSelectorPreviews
         img.style.display = img.dataset.displayWas

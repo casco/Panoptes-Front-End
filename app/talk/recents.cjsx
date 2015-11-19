@@ -28,7 +28,7 @@ module?.exports = React.createClass
     params = sort: '-created_at', page: page
 
     showNotes = if @refs.showNotes
-      @refs.showNotes.getDOMNode().checked
+      @refs.showNotes.checked
     else
       # Occurs before the dom has rendered (default: true)
       true

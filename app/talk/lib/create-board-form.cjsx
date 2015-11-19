@@ -42,12 +42,13 @@ module?.exports = React.createClass
 
   onSubmitBoard: (e) ->
     e.preventDefault()
-    titleInput = @getDOMNode().querySelector('form input')
-    descriptionInput = @getDOMNode().querySelector('form textarea')
+    node = React.findDOMNode(@)
+    titleInput = node.querySelector('form input')
+    descriptionInput = node.querySelector('form textarea')
 
     # permissions
-    read = @getDOMNode().querySelector(".roles-read input[name='role-read']:checked").value
-    write = @getDOMNode().querySelector(".roles-write input[name='role-write']:checked").value
+    read = node.querySelector(".roles-read input[name='role-read']:checked").value
+    write = node.querySelector(".roles-write input[name='role-write']:checked").value
     permissions = {read, write}
 
     title = titleInput.value

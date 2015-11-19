@@ -27,7 +27,7 @@ module?.exports = React.createClass
     !!validationErrors.length
 
   onSubmitMessage: (_, body) ->
-    recipient_ids = @getDOMNode().querySelector('[name="userids"]').value
+    recipient_ids = React.findDOMNode(@).querySelector('[name="userids"]').value
       .split(',').map (id) -> parseInt(id)
       .filter(Number)
 

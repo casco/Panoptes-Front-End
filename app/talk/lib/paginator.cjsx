@@ -63,7 +63,7 @@ module?.exports = React.createClass
     @setPage(prevPage)
 
   onSelectPage: (e) ->
-    selectedPage = +@refs.pageSelect.getDOMNode().value
+    selectedPage = +@refs.pageSelect.value
     @setPage(selectedPage)
 
   pageOption: (n, i) ->

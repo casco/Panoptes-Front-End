@@ -44,7 +44,7 @@ module.exports = React.createClass
 
   getTetherOptions: ->
     element: @state.container
-    target: @getDOMNode().parentNode
+    target: React.findDOMNode(@).parentNode
     attachment: @props.attachment
     targetAttachment: @props.targetAttachment
     offset: @props.offset

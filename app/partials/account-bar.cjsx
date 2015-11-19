@@ -56,19 +56,19 @@ module.exports = React.createClass
             onClick: @handleAccountMenuOpen
           }>
             <div ref="accountMenu" role="menu" className="secret-list" onKeyDown={@navigateMenu}>
-              <Link role="menuitem" to="user-profile" params={name: @props.user.login}>
+              <Link role="menuitem" to="/users/#{@props.user.login}">
                 <i className="fa fa-user fa-fw"></i>{' '}
                 <Translate content="accountMenu.profile" />
               </Link>
-              <Link role="menuitem" to="settings" params={name: @props.user.login}>
+              <Link role="menuitem" to="/settings">
                 <i className="fa fa-cogs fa-fw"></i>{' '}
                 <Translate content="accountMenu.settings" />
               </Link>
-              <Link role="menuitem" to="collections-user" params={{owner: @props.user.login}}>
+              <Link role="menuitem" to="/collections/#{@props.user.login}">
                 <i className="fa fa-image fa-fw"></i>{' '}
                 <Translate content="accountMenu.collections" />
               </Link>
-              <Link role="menuitem" to="favorites-user" params={{owner: @props.user.login}}>
+              <Link role="menuitem" to="favorites/#{@props.user.login}">
                 <i className="fa fa-star fa-fw"></i>{' '}
                 <Translate content="accountMenu.favorites" />
               </Link>
@@ -80,7 +80,7 @@ module.exports = React.createClass
             </div>
           </TriggeredModalForm>{' '}
 
-          <Link to="inbox" params={name: @props.user.login} className="message-link" aria-label="Inbox #{if @state.unread then 'with unread messages' else ''}">
+          <Link to="/inbox" className="message-link" aria-label="Inbox #{if @state.unread then 'with unread messages' else ''}">
             <i className="fa fa-envelope#{if @state.unread then ' unread' else '-o'}" />
           </Link>
         </div>
@@ -90,10 +90,10 @@ module.exports = React.createClass
     setTimeout => # Wait for the state change to take place.
       if @refs.accountMenuButton.state.open
         # React's `autoFocus` apparently doesn't work on <a> tags.
-        @refs.accountMenu.getDOMNode().querySelector(@props.focusablesSelector)?.focus()
+        @refs.accountMenu.querySelector(@props.focusablesSelector)?.focus()
 
   navigateMenu: (e) ->
-    focusables = @refs.accountMenu.getDOMNode().querySelectorAll @props.focusablesSelector
+    focusables = @refs.accountMenu.querySelectorAll @props.focusablesSelector
 
     for control, i in focusables when control is document.activeElement
       focusIndex = i

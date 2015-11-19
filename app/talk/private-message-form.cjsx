@@ -9,7 +9,7 @@ module?.exports = React.createClass
   mixins: [Router.Navigation]
 
   onSubmitMessage: (_, body) ->
-    pm = @getDOMNode().querySelector('.private-message-form')
+    pm = React.findDOMNode(@).querySelector('.private-message-form')
     input = pm.querySelector('input')
 
     title = input.value

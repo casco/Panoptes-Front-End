@@ -25,7 +25,7 @@ module.exports = React.createClass
           @props.onSuccess user
       .catch (e) =>
         @setState {busy: false, error: e}, =>
-          @getDOMNode().querySelector('[name="login"]')?.focus()
+          React.findDOMNode(@).querySelector('[name="login"]')?.focus()
           @props.onFailure? user
 
   handleSubmit: (e) ->

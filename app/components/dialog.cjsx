@@ -32,7 +32,7 @@ module.exports = React.createClass
 
       when TAB_KEY
         {shiftKey} = e # Save this; React recycles the event object.
-        focusables = @getDOMNode().querySelectorAll FOCUSABLES
+        focusables = React.findDOMNode(@).querySelectorAll FOCUSABLES
         if shiftKey and document.activeElement == focusables[0]
           focusables[focusables.length - 1]?.focus()
           e.preventDefault()

@@ -219,11 +219,11 @@ module.exports = React.createClass
     # Auto-scroll to the middle of the classification interface on load.
     # It's not perfect, but it should make the location of everything more obvious.
     lineHeight = parseFloat getComputedStyle(document.body).lineHeight
-    el = @getDOMNode()
-    space = (innerHeight - el.offsetHeight) / 2
-    idealScrollY = el.offsetTop - space
+    node = React.findDOMNode(@)
+    space = (innerHeight - node.offsetHeight) / 2
+    idealScrollY = node.offsetTop - space
     if Math.abs(idealScrollY - scrollY) > lineHeight
-      animatedScrollTo document.body, el.offsetTop - space, 333
+      animatedScrollTo document.body, node.offsetTop - space, 333
 
   handleDemoModeChange: (newDemoMode) ->
     sessionDemoMode = newDemoMode

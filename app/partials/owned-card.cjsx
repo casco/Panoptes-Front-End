@@ -33,7 +33,7 @@ module.exports = React.createClass
     apiClient.type(@props.resource.links.owner.type).get(@props.resource.links.owner.id)
 
   componentDidMount: ->
-    card = @refs.ownedCard.getDOMNode()
+    card = @refs.ownedCard
 
     @props.imagePromise
       .then (src) =>

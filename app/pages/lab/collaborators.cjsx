@@ -77,8 +77,9 @@ CollaboratorCreator = React.createClass
 
   handleSubmit: (e) ->
     e.preventDefault()
-    checkboxes = @getDOMNode().querySelectorAll '[name="role"]'
-    userids = @getDOMNode().querySelector('[name="userids"]')
+    node = React.findDOMNode(@)
+    checkboxes = node.querySelectorAll '[name="role"]'
+    userids = node.querySelector('[name="userids"]')
     users = userids.value.split(',').map (id) -> parseInt(id)
     roles = for checkbox in checkboxes when checkbox.checked
       checkbox.value

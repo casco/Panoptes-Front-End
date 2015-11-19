@@ -44,7 +44,7 @@ module?.exports = React.createClass
       @setState {commentUser}
 
   componentDidMount: ->
-    latestCommentText = @refs?.markdownText?.getDOMNode()?.textContent
+    latestCommentText = @refs?.markdownText?.textContent
     @setState({latestCommentText}) if latestCommentText
 
   render: ->
