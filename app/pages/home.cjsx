@@ -94,7 +94,7 @@ module.exports = React.createClass
                         null
                     } />}
                 </div>
-                <Link to="user-profile-stats" params={{name: @props.user.login}} className="call-to-action standard-button x-large"><Translate content="home.recentProjects.button" /></Link>
+                <Link to="/users/#{@props.user.login}/stats" className="call-to-action standard-button x-large"><Translate content="home.recentProjects.button" /></Link>
               </div>
             else
               <div className="recent-projects">

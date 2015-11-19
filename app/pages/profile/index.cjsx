@@ -74,7 +74,7 @@ UserProfilePage = React.createClass
 
             <span>
               {if @props.user is @props.profileUser
-                <Link to="user-profile-stats" params={name: @props.profileUser.login}>
+                <Link to="users/#{@props.profileUser.login}/stats">
                   <Translate content="profile.nav.stats" />
                 </Link>
               else
