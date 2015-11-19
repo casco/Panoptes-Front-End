@@ -1,4 +1,4 @@
-React = require 'react'x
+React = require 'react'
 ReactDOM = require 'react-dom'
 talkClient = require '../api/talk'
 UserSearch = require '../components/user-search'
