@@ -15,6 +15,23 @@ module?.exports = React.createClass
   propTypes:
     discussion: React.PropTypes.object
 
+  discussionLink: ->
+    {discussion, params: {owner, name}} = @props
+
+    if owner and name # get from url if possible
+      projectTalk = "/projects/#{owner}/#{name}/talk/#{discussion.board_id}/#{discussion.id}"
+      <Link to={projectTalk}>{discussion.title}</Link>
+
+    else if @props.project # otherwise fetch from project
+      [owner, name] = @props.project.slug.split('/')
+      projectTalk = "/projects/#{owner}/#{name}/talk/#{discussion.board_id}/#{discussion.id}"
+      <Link to={projectTalk}>{discussion.title}</Link>
+
+    else # link to zooniverse main talk
+      <Link to="/talk/#{discussion.board_id}/#{discussion.id}">
+        {discussion.title}
+      </Link>
+
   render: ->
     {params, discussion} = @props
     comment = @props.comment or discussion.latest_comment
@@ -32,22 +49,7 @@ module?.exports = React.createClass
 
         <h1>
           {<i className="fa fa-thumb-tack talk-sticky-pin"></i> if discussion.sticky}
-          {if params?.owner and params?.name # get from url if possible
-            <Link to="project-talk-discussion" params={board: discussion.board_id, discussion: discussion.id, owner: params.owner, name: params.name}>
-              {discussion.title}
-            </Link>
-
-          else if @props.project # otherwise fetch from project
-            [owner, name] = @props.project.slug.split('/')
-            <Link to="project-talk-discussion" params={board: discussion.board_id, discussion: discussion.id, owner: owner, name: name}>
-              {discussion.title}
-            </Link>
-
-          else # link to zooniverse main talk
-            <Link to="talk-discussion" params={board: discussion.board_id, discussion: discussion.id}>
-              {discussion.title}
-            </Link>
-            }
+          {@discussionLink()}
         </h1>
 
         <LatestCommentLink {...@props} project={@props.project} discussion={discussion} comment={@props.comment} preview={true} />

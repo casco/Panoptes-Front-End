@@ -56,7 +56,7 @@ module.exports =
       <Route path="recents/:board/?" component={require './talk/recents'} />
       <Route path="tags/:tag/?" component={require './talk/tags'} />
       <Route path=":board" component={require './talk/board'} />
-      <Route path=":board/:discussion/?" component={require './talk/discussion'} />
+      <Route path=":board/:discussion" component={require './talk/discussion'} />
     </Route>
     <Route path="faq/?" component={require './pages/project/faq'} />
     <Route path="education/?" component={require './pages/project/education'} />
@@ -73,7 +73,7 @@ module.exports =
     <Route path="moderations/?" component={require './talk/moderations'} />
     <Route path=":board" component={require './talk/board'} />
     <Route path="recents/:board/?" component={require './talk/recents'} />
-    <Route name="talk-discussion" path=":board/:discussion/?" component={require './talk/discussion'} />
+    <Route name="talk-discussion" path=":board/:discussion" component={require './talk/discussion'} />
   </Route>
 
   <Route path="favorites/?" component={require('./pages/collections').FavoritesList}>
