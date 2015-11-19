@@ -1,4 +1,5 @@
-React = {findDOMNode} = require 'react'
+React = require 'react'x
+ReactDOM = require 'react-dom'
 talkClient = require '../api/talk'
 UserSearch = require '../components/user-search'
 {Navigation} = require 'react-router'
@@ -27,11 +28,11 @@ module?.exports = React.createClass
     !!validationErrors.length
 
   onSubmitMessage: (_, body) ->
-    recipient_ids = React.findDOMNode(@).querySelector('[name="userids"]').value
+    recipient_ids = ReactDOM.findDOMNode(@).querySelector('[name="userids"]').value
       .split(',').map (id) -> parseInt(id)
       .filter(Number)
 
-    title = findDOMNode(@refs.subject).value
+    title = @refs.subject.value
     user_id = @props.user.id
 
     errored = @validations(body, title, recipient_ids)

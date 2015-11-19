@@ -1,5 +1,6 @@
 auth = require '../../api/auth'
 React = require 'react'
+ReactDOM = require 'react-dom'
 TitleMixin = require '../../lib/title-mixin'
 HandlePropChanges = require '../../lib/handle-prop-changes'
 PromiseToSetState = require '../../lib/promise-to-set-state'
@@ -219,7 +220,7 @@ module.exports = React.createClass
     # Auto-scroll to the middle of the classification interface on load.
     # It's not perfect, but it should make the location of everything more obvious.
     lineHeight = parseFloat getComputedStyle(document.body).lineHeight
-    node = React.findDOMNode(@)
+    node = ReactDOM.findDOMNode(@)
     space = (innerHeight - node.offsetHeight) / 2
     idealScrollY = node.offsetTop - space
     if Math.abs(idealScrollY - scrollY) > lineHeight

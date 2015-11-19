@@ -1,4 +1,5 @@
-React = {findDOMNode} = require 'react'
+React = require 'react'
+ReactDOM = require 'react-dom'
 Comment = require './comment'
 CommentBox = require './comment-box'
 commentValidations = require './lib/comment-validations'
@@ -89,7 +90,7 @@ module?.exports = React.createClass
       @setState {commentsMeta}
 
   scrollToBottomOfDiscussion: ->
-    React.findDOMNode(@)?.scrollIntoView(false)
+    ReactDOM.findDOMNode(@)?.scrollIntoView(false)
 
   discussionsRequest: (discussion = @props.params.discussion) ->
     talkClient.type('discussions').get({id: discussion, sort_linked_comments: 'created_at'})
@@ -155,7 +156,7 @@ module?.exports = React.createClass
     else
       @setState reply: comment: comment
 
-    findDOMNode(@).scrollIntoView(false)
+    ReactDOM.findDOMNode(@).scrollIntoView(false)
 
   comment: (data, i) ->
     <Comment
@@ -217,7 +218,7 @@ module?.exports = React.createClass
 
   onChangeTitle: (e) ->
     e.preventDefault()
-    title = findDOMNode(@refs.editTitle).value
+    title = @refs.editTitle.value
     @discussionsRequest().update({title}).save()
       .then (discussion) =>
         @setState {editingTitle: false}

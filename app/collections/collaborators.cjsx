@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 counterpart = require 'counterpart'
 UserSearch = require '../components/user-search'
 apiClient = require '../api/client'
@@ -76,7 +77,7 @@ RoleCreator = React.createClass
 
   handleSubmit: (e) ->
     e.preventDefault()
-    node = React.findDOMNode(@)
+    node = ReactDOM.findDOMNode(@)
 
     checkboxes = node.querySelectorAll '[name="role"]'
     userids = node.querySelector('[name="userids"]')

@@ -25,7 +25,7 @@ module?.exports = React.createClass
       @transitionTo 'talk-search', {}, {query: inputValue}
 
   searchInput: ->
-    React.findDOMNode(@refs.talkSearchInput)
+    @refs.talkSearchInput
 
   componentWillReceiveProps: (nextProps) ->
     if nextProps.query?.query

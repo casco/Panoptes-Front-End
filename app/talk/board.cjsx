@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 {Link} = require 'react-router'
 DiscussionPreview = require './discussion-preview'
 talkClient = require '../api/talk'
@@ -91,7 +92,7 @@ module?.exports = React.createClass
 
   onEditBoard: (e) ->
     e.preventDefault()
-    form = React.findDOMNode(@).querySelector('.talk-edit-board-form')
+    form = ReactDOM.findDOMNode(@).querySelector('.talk-edit-board-form')
 
     input = form.querySelector('input')
     title = input.value

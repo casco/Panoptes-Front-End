@@ -1,4 +1,5 @@
-React = {findDOMNode} = require 'react'
+React = require 'react'
+ReactDOM = require 'react-dom'
 talkClient = require '../api/talk'
 apiClient = require '../api/client'
 auth = require '../api/auth'
@@ -72,7 +73,7 @@ module?.exports = React.createClass
     if ['destroy', 'ignore', 'watch', 'open'].indexOf(action) is -1
       throw new Error("Moderation update action must be one of ['destroy', 'ignore', 'watch', 'open']")
 
-    textarea = findDOMNode(@).querySelector('.textarea-container textarea')
+    textarea = ReactDOM.findDOMNode(@).querySelector('.textarea-container textarea')
     message = textarea.value ? null
 
     updateParams =

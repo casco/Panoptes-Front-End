@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 UserSearch = require '../../components/user-search'
 PromiseRenderer = require '../../components/promise-renderer'
 apiClient = require '../../api/client'
@@ -102,7 +103,7 @@ module.exports = React.createClass
 
   listUsers: (e) ->
     e.preventDefault()
-    userSelect = React.findDOMNode(@).querySelector('[name="userids"]')
+    userSelect = ReactDOM.findDOMNode(@).querySelector('[name="userids"]')
     userId = userSelect.value
     if userId?
       this.setState({userId: userId});

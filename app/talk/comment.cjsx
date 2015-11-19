@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 ToggleChildren = require './mixins/toggle-children'
 commentValidations = require './lib/comment-validations'
 {getErrors} = require './lib/validations'
@@ -49,7 +50,7 @@ module?.exports = React.createClass
 
   componentDidMount: ->
     if @props.active
-      React.findDOMNode(@).scrollIntoView()
+      ReactDOM.findDOMNode(@).scrollIntoView()
 
   onClickReply: (e) ->
     @props.onClickReply(@props.data)
@@ -100,7 +101,7 @@ module?.exports = React.createClass
       <span>Subject {subject.id}</span>
 
   flashHighlightedComment: (commentId) ->
-    reply = React.findDOMNode(@refs["comment-reply-#{commentId}"])
+    reply = @refs["comment-reply-#{commentId}"]
     reply.classList.add('highlighted')
     window.setTimeout((=> reply.classList.remove('highlighted')), 500)
 

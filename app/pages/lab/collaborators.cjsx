@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 PromiseRenderer = require '../../components/promise-renderer'
 UserSearch = require '../../components/user-search'
 apiClient = require '../../api/client'
@@ -77,7 +78,7 @@ CollaboratorCreator = React.createClass
 
   handleSubmit: (e) ->
     e.preventDefault()
-    node = React.findDOMNode(@)
+    node = ReactDOM.findDOMNode(@)
     checkboxes = node.querySelectorAll '[name="role"]'
     userids = node.querySelector('[name="userids"]')
     users = userids.value.split(',').map (id) -> parseInt(id)

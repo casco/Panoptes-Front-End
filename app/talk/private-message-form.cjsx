@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 apiClient = require '../api/client'
 talkClient = require '../api/talk'
 Router = require 'react-router'
@@ -9,7 +10,7 @@ module?.exports = React.createClass
   mixins: [Router.Navigation]
 
   onSubmitMessage: (_, body) ->
-    pm = React.findDOMNode(@).querySelector('.private-message-form')
+    pm = ReactDOM.findDOMNode(@).querySelector('.private-message-form')
     input = pm.querySelector('input')
 
     title = input.value

@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 ROLES = require './roles'
 talkClient = require '../../api/talk'
 SingleSubmitButton = require '../../components/single-submit-button'
@@ -42,7 +43,7 @@ module?.exports = React.createClass
 
   onSubmitBoard: (e) ->
     e.preventDefault()
-    node = React.findDOMNode(@)
+    node = ReactDOM.findDOMNode(@)
     titleInput = node.querySelector('form input')
     descriptionInput = node.querySelector('form textarea')
 

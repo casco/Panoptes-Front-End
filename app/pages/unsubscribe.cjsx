@@ -1,4 +1,4 @@
-React = { findDOMNode } = require 'react'
+React = require 'react'
 auth = require '../api/auth'
 alert = require '../lib/alert'
 LoginDialog = require '../partials/login-dialog'
@@ -21,7 +21,7 @@ module.exports = React.createClass
     @handleEmailChange()
 
   handleEmailChange: ->
-    @setState { emailIsValid: findDOMNode(@refs.email).checkValidity() }
+    @setState { emailIsValid: @refs.email.checkValidity() }
 
   handleEmailSubmit: (e) ->
     e.preventDefault()
@@ -31,7 +31,7 @@ module.exports = React.createClass
       emailSuccess: false
       emailError: false
 
-    email = findDOMNode(@refs.email).value
+    email = @refs.email.value
 
     auth.unsubscribeEmail {email}
       .then =>

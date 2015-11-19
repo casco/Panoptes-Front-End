@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 Tether = require 'tether/tether' if window.document
 
 DEFAULT_ATTACHMENT_POINT = 'middle center'
@@ -44,7 +45,7 @@ module.exports = React.createClass
 
   getTetherOptions: ->
     element: @state.container
-    target: React.findDOMNode(@).parentNode
+    target: ReactDOM.findDOMNode(@).parentNode
     attachment: @props.attachment
     targetAttachment: @props.targetAttachment
     offset: @props.offset

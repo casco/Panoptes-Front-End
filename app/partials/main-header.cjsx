@@ -57,7 +57,7 @@ module.exports = React.createClass
       document.addEventListener 'scroll', @onScroll
     else
      document.removeEventListener 'scroll', @onScroll
-     React.findDOMNode(@refs.mainTitle).classList.remove 'header-sticky'
+     @refs.mainTitle.classList.remove 'header-sticky'
 
   checkIfOnHome: ->
     window.location is '/'
@@ -116,7 +116,7 @@ module.exports = React.createClass
     </header>
 
   onScroll: ->
-    mainTitle = React.findDOMNode(@refs.mainTitle)
+    mainTitle = @refs.mainTitle
 
     if window.scrollY >= 1
       mainTitle.classList.add 'header-sticky'
