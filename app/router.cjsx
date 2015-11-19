@@ -19,24 +19,24 @@ module.exports =
   <Route path="unsubscribe/?" component={require './pages/unsubscribe'} />
 
   <Route path="accounts" component={require './pages/sign-in'}>
-    <Route path="sign-in/?" component={require './partials/sign-in-form'} />
-    <Route path="register/?" component={require './partials/register-form'} />
+    <Route path="sign-in" component={require './partials/sign-in-form'} />
+    <Route path="register" component={require './partials/register-form'} />
   </Route>
-  <Route path="privacy/?" component={require './pages/privacy-policy'} />
+  <Route path="privacy" component={require './pages/privacy-policy'} />
 
   <Route path="users/:name/?" component={require './pages/profile'}>
     <IndexRoute component={require './pages/profile/feed'} />
-    <Route path="message/?" component={require './pages/profile/private-message'} />
-    <Route path="stats/?" component={require './pages/profile/stats'} />
+    <Route path="message" component={require './pages/profile/private-message'} />
+    <Route path="stats" component={require './pages/profile/stats'} />
   </Route>
 
-  <Route path="inbox/?" component={require './talk/inbox'} />
-  <Route path="inbox/:conversation/?" component={require './talk/inbox-conversation'} />
+  <Route path="inbox" component={require './talk/inbox'} />
+  <Route path="inbox/:conversation" component={require './talk/inbox-conversation'} />
 
   <Route path="settings/?" component={require './pages/settings'}>
     <IndexRoute component={require './pages/settings/account'} />
-    <Route path="profile/?" component={require './pages/settings/profile' } />
-    <Route path="email/?" component={require './pages/settings/email' } />
+    <Route path="profile" component={require './pages/settings/profile' } />
+    <Route path="email" component={require './pages/settings/email' } />
   </Route>
 
   <Route path="projects" component={require './pages/projects'} />
