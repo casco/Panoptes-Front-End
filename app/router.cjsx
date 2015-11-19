@@ -8,10 +8,10 @@ module.exports =
 
   <Route path="about" component={require './pages/about'} ignoreScrollBehavior>
     <IndexRoute component={require './pages/about/about-home'} />
-    <Route path="team/?" component={require './pages/about/team-page'} />
-    <Route path="publications/?" component={require './pages/about/publications-page'} />
-    <Route path="education/?" component={require './pages/about/education-page'} />
-    <Route path="contact/?" component={require './pages/about/contact-page'} />
+    <Route path="team" component={require './pages/about/team-page'} />
+    <Route path="publications" component={require './pages/about/publications-page'} />
+    <Route path="education" component={require './pages/about/education-page'} />
+    <Route path="contact" component={require './pages/about/contact-page'} />
   </Route>
 
   <Route path="reset-password/?" component={require './pages/reset-password'} />
