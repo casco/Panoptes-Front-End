@@ -48,9 +48,11 @@ FeaturedProjects = React.createClass
         if projects?
           <div className="featured-projects-list">
           {for project in projects
+            [owner, name] = project.slug.split('/')
+
             avatarSrc = project.get('avatar').then (avatar) ->
               avatar.src
-            <OwnedCard key={project.id} resource={project} linkTo="project-home" translationObjectName="projectsPage" imagePromise={avatarSrc} />
+            <OwnedCard key={project.id} resource={project} linkTo="/projects/#{owner}/#{name}" translationObjectName="projectsPage" imagePromise={avatarSrc} />
           }
           </div>
       }</PromiseRenderer>
