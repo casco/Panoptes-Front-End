@@ -40,7 +40,7 @@ module.exports =
   </Route>
 
   <Route path="projects" component={require './pages/projects'} />
-  <Route path="projects/:owner/:name/?" component={require './pages/project'}>
+  <Route path="projects/:owner/:name" component={require './pages/project'}>
     <IndexRoute component={require './pages/project/home'} />
     <Route path="research/?" component={require './pages/project/research'} />
     <Route path="results/?" component={require './pages/project/results'} />
@@ -91,7 +91,7 @@ module.exports =
   </Route>
 
   <Route path="lab" component={require './pages/lab'} />
-  <Route path="lab/:projectID/?" component={require './pages/lab/project'}>
+  <Route path="lab/:projectID" component={require './pages/lab/project'}>
     <IndexRoute component={require './pages/lab/project-details'} />
     <Route path="research/?" component={require './pages/lab/research'} />
     <Route path="results/?" component={require './pages/lab/results'} />
