@@ -3,7 +3,8 @@ React = require 'react'
 
 module.exports =
 <Route component={require './partials/app'}>
-  <IndexRoute component={require './pages/home'} />
+  <Route path="/" component={require './pages/home'}/>
+  <Route path="home" component={require './pages/home'}/>
 
   <Route path="about" component={require './pages/about'} ignoreScrollBehavior>
     <IndexRoute component={require './pages/about/about-home'} />
