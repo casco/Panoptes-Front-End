@@ -55,7 +55,7 @@ module.exports =
       <Route path="subjects/:id/?" component={require './subjects'}/>
       <Route path="recents/:board/?" component={require './talk/recents'} />
       <Route path="tags/:tag/?" component={require './talk/tags'} />
-      <Route path=":board/?" component={require './talk/board'} />
+      <Route path=":board" component={require './talk/board'} />
       <Route path=":board/:discussion/?" component={require './talk/discussion'} />
     </Route>
     <Route path="faq/?" component={require './pages/project/faq'} />
@@ -71,7 +71,7 @@ module.exports =
     <Route path="not-found/?" component={require './pages/not-found'} />
     <Route path="search/?" component={require './talk/search'} />
     <Route path="moderations/?" component={require './talk/moderations'} />
-    <Route path=":board/?" component={require './talk/board'} />
+    <Route path=":board" component={require './talk/board'} />
     <Route path="recents/:board/?" component={require './talk/recents'} />
     <Route name="talk-discussion" path=":board/:discussion/?" component={require './talk/discussion'} />
   </Route>
