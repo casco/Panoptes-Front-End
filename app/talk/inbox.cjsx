@@ -40,7 +40,7 @@ module?.exports = React.createClass
     @goToPage(page)
 
   goToPage: (n) ->
-    @transitionTo(@props.path, @props.params, {page: n})
+    @transitionTo(@props.route.path, @props.params, {page: n})
     @setConversations(n)
 
   message: (data, i) ->
