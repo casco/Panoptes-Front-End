@@ -40,7 +40,7 @@ module.exports = React.createClass
                     [owner, name] = project.slug.split('/')
                     <tr key={project.id}>
                       <td>{project.display_name}</td>
-                        <td><Link to="/lab/#{project.id}" className="minor-button"><i className="fa fa-pencil"></i> Edit</Link></td>
+                      <td><Link to="/lab/#{project.id}" className="minor-button"><i className="fa fa-pencil"></i> Edit</Link></td>
                       <td>
                         <Link to="projects/#{owner}/#{name}" className="minor-button"><i className="fa fa-hand-o-right"></i> View</Link>
                       </td>
