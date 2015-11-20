@@ -21,7 +21,7 @@ module.exports = React.createClass
 
         <TalkSearchInput {...@props} />
 
-        {React.cloneElement @props.children section: projectSection(@props.project)}
+        {React.cloneElement @props.children, {section: projectSection(@props.project), project: @props.project}}
 
         <TalkFootnote />
       </div>
