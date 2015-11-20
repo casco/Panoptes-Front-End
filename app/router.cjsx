@@ -42,19 +42,19 @@ module.exports =
   <Route path="projects" component={require './pages/projects'} />
   <Route path="projects/:owner/:name" component={require './pages/project'}>
     <IndexRoute component={require './pages/project/home'} />
-    <Route path="research/?" component={require './pages/project/research'} />
-    <Route path="results/?" component={require './pages/project/results'} />
-    <Route path="classify/?" component={require './pages/project/classify'} />
-    <Route path="notifications/?" component={require './pages/notifications'} />
-    <Route path="talk/?" component={require './pages/project/talk'}>
+    <Route path="research" component={require './pages/project/research'} />
+    <Route path="results" component={require './pages/project/results'} />
+    <Route path="classify" component={require './pages/project/classify'} />
+    <Route path="notifications" component={require './pages/notifications'} />
+    <Route path="talk" component={require './pages/project/talk'}>
       <IndexRoute component={require './talk/init'} />
-      <Route path="recents/?" component={require './talk/recents'} />
-      <Route path="not-found/?" component={require './pages/not-found'} />
-      <Route path="search/?" component={require './talk/search'}/>
-      <Route path="moderations/?" component={require './talk/moderations'}/>
-      <Route path="subjects/:id/?" component={require './subjects'}/>
-      <Route path="recents/:board/?" component={require './talk/recents'} />
-      <Route path="tags/:tag/?" component={require './talk/tags'} />
+      <Route path="recents" component={require './talk/recents'} />
+      <Route path="not-found" component={require './pages/not-found'} />
+      <Route path="search" component={require './talk/search'}/>
+      <Route path="moderations" component={require './talk/moderations'}/>
+      <Route path="subjects/:id" component={require './subjects'}/>
+      <Route path="recents/:board" component={require './talk/recents'} />
+      <Route path="tags/:tag" component={require './talk/tags'} />
       <Route path=":board" component={require './talk/board'} />
       <Route path=":board/:discussion" component={require './talk/discussion'} />
     </Route>
