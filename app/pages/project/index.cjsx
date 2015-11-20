@@ -70,7 +70,6 @@ ProjectPage = React.createClass
     <ChangeListener target={@props.project}>{=>
       <PromiseRenderer promise={@props.project.get 'owner'}>{(owner) =>
         [ownerName, name] = @props.project.slug.split('/')
-        params = {owner: ownerName, name: name}
         projectPath = "/projects/#{ownerName}/#{name}"
 
         <div className="project-page">
