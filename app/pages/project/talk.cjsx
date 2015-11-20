@@ -10,10 +10,12 @@ module.exports = React.createClass
   displayName: 'ProjectTalkPage'
 
   render: ->
+    [owner, name] = @props.project.slug.split('/')
+
     <div className="project-text-content talk project">
       <div className="content-container">
         <h1 className="talk-main-link">
-          <Link to="project-talk" params={@props.params}>
+          <Link to="/projects/#{owner}/#{name}/talk">
             {@props.project.display_name} Talk
           </Link>
         </h1>
