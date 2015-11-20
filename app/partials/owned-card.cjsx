@@ -52,7 +52,7 @@ module.exports = React.createClass
         owner: owner
         name: name
 
-    <div className="card" ref="ownedCard">
+    <div className="card" ref="ownedCard" tabIndex="0">
       <FlexibleLink {...linkProps}>
         <svg className="card-space-maker" viewBox="0 0 2 1" width="100%"></svg>
         <div className="details">
