@@ -83,7 +83,7 @@ module?.exports = React.createClass
 
   userLink: (user) ->
     <li key={user.id}>
-      <Link to="user-profile" params={name: user.login} title="#{user.display_name}'s profile">{user.display_name}</Link>
+      <Link to="/users/#{user.login}" title="#{user.display_name}'s profile">{user.display_name}</Link>
     </li>
 
   render: ->

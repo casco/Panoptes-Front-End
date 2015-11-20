@@ -59,7 +59,7 @@ UserProfilePage = React.createClass
         <div className="hero-container">
           <h1>{@props.profileUser.display_name}</h1>
           <nav className="hero-nav">
-            <Link to="user-profile" params={name: @props.profileUser.login}>
+            <Link to="/users/#{@props.profileUser.login}">
               <Translate content="profile.nav.comments" />
             </Link>
             {' '}

@@ -49,7 +49,7 @@ module?.exports = React.createClass
     <div className="conversation-message" key={data.id}>
       <PromiseRenderer promise={apiClient.type('users').get(data.user_id)}>{(commentOwner) =>
         <span>
-          <strong><Link to="user-profile" params={name: commentOwner.login}>{commentOwner.display_name}</Link></strong>{' '}
+          <strong><Link to="/users/#{commentOwner.login}">{commentOwner.display_name}</Link></strong>{' '}
           <span>{timestamp(data.updated_at)}</span>
         </span>
       }</PromiseRenderer>
@@ -84,7 +84,7 @@ module?.exports = React.createClass
             In this conversation:{' '}
             {@state.recipients.map (user, i) =>
               <span key={user.id}>
-                <Link to="user-profile" params={name: user.login}>
+                <Link to="/users/#{user.login}">
                   {user.display_name}
                 </Link>{', ' unless i is @state.recipients.length-1}
               </span>

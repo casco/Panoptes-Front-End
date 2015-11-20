@@ -37,7 +37,7 @@ module?.exports = React.createClass
         <Markdown>{@state.message.body}</Markdown>
 
         <div className="bottom">
-          <Link className="user-profile-link" to="user-profile" params={name: @state.messageUser.login}>
+          <Link className="user-profile-link" to="/users/#{@state.messageUser.login}">
             <Avatar user={@state.messageUser} />{' '}{@state.messageUser.display_name}
           </Link>{' '}
           <Link to="inbox-conversation" {...@props} params={conversation: notification.source.conversation_id} className="time-ago">

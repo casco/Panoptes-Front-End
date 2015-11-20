@@ -92,7 +92,7 @@ module?.exports = React.createClass
     <div key={report.id}>
       <PromiseRenderer promise={apiClient.type('users').get(report.user_id.toString())}>{(user) =>
         <li>
-          <Link to="user-profile" params={name: user.login}>{user.display_name}</Link>: {report.message}
+          <Link to="/users/#{user.login}">{user.display_name}</Link>: {report.message}
         </li>
       }</PromiseRenderer>
     </div>
@@ -103,7 +103,7 @@ module?.exports = React.createClass
       <ul>{moderation.reports.map(@report)}</ul>
 
       <span>Reported comment by:{' '}
-        <Link to='user-profile' params={name: comment.user_login}>
+        <Link to="/users/#{comment.user_login}">
           {comment.user_display_name}
         </Link>:
       </span>
@@ -144,7 +144,7 @@ module?.exports = React.createClass
   action: (action, i) ->
     <PromiseRenderer promise={apiClient.type('users').get(action.user_id.toString())}>{(user) =>
       <div>
-        {actionTaken[action.action] ? action.action} by <Link to="user-profile" params={name: user.login}>{user.display_name}</Link>
+        {actionTaken[action.action] ? action.action} by <Link to="/users/#{user.login}">{user.display_name}</Link>
         {if action.message
           <div><i className="fa fa-quote-left"/> {action.message} <i className="fa fa-quote-right"/></div>
           }

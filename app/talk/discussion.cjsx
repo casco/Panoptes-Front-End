@@ -337,7 +337,7 @@ module?.exports = React.createClass
           <div className="talk-comment-author">
             <Avatar user={@props.user} />
             <p>
-              <Link to="user-profile" params={name: @props.user.login}>{@props.user.display_name}</Link>
+              <Link to="/users/#{@props.user.login}">{@props.user.display_name}</Link>
             </p>
             <div className="user-mention-name">@{@props.user.login}</div>
             <PromiseRenderer promise={talkClient.type('roles').get(user_id: @props.user.id, section: ['zooniverse', discussion.section], is_shown: true, page_size: 100)}>{(roles) =>
