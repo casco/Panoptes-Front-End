@@ -133,7 +133,7 @@ ProjectPage = React.createClass
               <a key={link._key} href={link.url} className="tabbed-content-tab" target="#{@props.project.id}-#{i}">{label}</a>}
           </nav>
 
-          {React.cloneElement @props.children, {owner: owner}}
+          {React.cloneElement(@props.children, {owner: owner, project: @props.project})}
           {unless @props.project.launch_approved or @props.project.beta_approved
             <Translate className="project-disclaimer" content="project.disclaimer" component="p" />
           }
