@@ -1,22 +1,16 @@
-DEFAULT_ENV = 'staging'
+DEFAULT_ENV = 'cientopolis'
 
 API_HOSTS =
-  production: 'https://www.zooniverse.org'
-  staging: 'https://panoptes-staging.zooniverse.org'
-  cam: 'http://172.17.2.87:3000'
+  cientopolis: 'http://192.168.0.109:3000'
 
 API_APPLICATION_IDS =
-  production: 'f79cf5ea821bb161d8cbb52d061ab9a2321d7cb169007003af66b43f7b79ce2a'
-  staging: '535759b966935c297be11913acee7a9ca17c025f9f15520e7504728e71110a27'
-  cam: '535759b966935c297be11913acee7a9ca17c025f9f15520e7504728e71110a27'
+  cientopolis: '5c23b6bffa9e6eee20f7cefae99c3a88bde762e88106956381cd9f268c59bec5'
 
 TALK_HOSTS =
-  production: 'https://talk.zooniverse.org'
-  staging: 'https://talk-staging.zooniverse.org'
+  cientopolis: 'http://192.168.0.109:3000'
 
 SUGAR_HOSTS =
-  production: 'https://notifications.zooniverse.org'
-  staging: 'https://notifications-staging.zooniverse.org'
+  cientopolis: 'http://192.168.0.109:3000'
 
 hostFromBrowser = location?.search.match(/\W?panoptes-api-host=([^&]+)/)?[1]
 appFromBrowser = location?.search.match(/\W?panoptes-api-application=([^&]+)/)?[1]
